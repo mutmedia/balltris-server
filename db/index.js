@@ -1,7 +1,7 @@
 const MongoClient = require('mongodb').MongoClient
 const config = require('config')
 const Model = require('./model')
-const uri = config.db.url
+const uri = config.get('db.url')
 
 class Db {
   async connect () {
