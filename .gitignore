@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-=======
 build
 *.lnk
-
-
-
->>>>>>> added security
 # Logs
 logs
 *.log
@@ -64,7 +58,3 @@ typings/
 
 # dotenv environment variables file
 .env
-<<<<<<< HEAD
-
-=======
->>>>>>> added security
