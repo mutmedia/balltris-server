@@ -6,7 +6,7 @@ console.log(uri)
 
 class Db {
   async connect () {
-    const client = await new MongoClient(uri, { useNewUrlParser: true })
+    const client = new MongoClient(uri, { useNewUrlParser: true })
     client.connect(err => {
       if (err) {
         console.error(err)
