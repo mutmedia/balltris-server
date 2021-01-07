@@ -3,17 +3,21 @@ const config = require('config')
 const Model = require('./model')
 const uri = config.db.url
 
-let db
-
 class Db {
   async connect () {
-    if (!db) {
-      db = new MongoClient(uri, { useNewUrlParser: true })
+    const client = await new MongoClient(uri, { useNewUrlParser: true })
+    await client.connect(err => {
+      if (err) {
+        console.error(err)
+        return
+      }
+      const db = client.db('balltris')
       this.User = new Model(db, 'users')
       this.Game = new Model(db, 'games')
-      db.createIndex('games', { userid: 1, game: 1 }, { unique: true })
-    }
+
+      db.collection(this.Game.name).createIndex({ userid: 2, game: 1 }, { unique: true })
+    })
   }
-};
+}
 
 module.exports = new Db()
