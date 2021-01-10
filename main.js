@@ -78,7 +78,7 @@ router.get('/games', async (ctx, next) => {
 router.post('/games', async (ctx, next) => {
   const data = ctx.request.body
   const passwordBuilder = data.userid + data.game
-  const password = config.get('secret') ? md5(md5(passwordBuilder) + md5(config.get('secret'))) : 'no password'
+  const password = config.has('secret') ? md5(md5(passwordBuilder) + md5(config.get('secret').toString())) : 'no password'
 
   if (password === data.password) {
     ctx.body = await db.Game.insertOne(_.omit(data, 'password'))
