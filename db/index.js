@@ -1,7 +1,7 @@
 const MongoClient = require('mongodb').MongoClient
 const config = require('config')
 const Model = require('./model')
-const uri = config.get('db.url')
+const uri = config.get('db.url').toString()
 console.log(uri)
 
 class Db {
