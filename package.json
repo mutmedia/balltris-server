@@ -10,7 +10,7 @@
   "author": "ghust1995",
   "license": "ISC",
   "dependencies": {
-    "config": "^1.26.1",
+    "config": "^3.3.8",
     "kcors": "^2.2.1",
     "koa": "^2.2.0",
     "koa-bodyparser": "^4.3.0",
